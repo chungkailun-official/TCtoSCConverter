@@ -1,0 +1,13 @@
+bin/
+obj/
+*/bin/
+*/obj/
+
+route-files-*/
+route.test.csv
+test-restore.log
+opencc-master.zip
+
+.vs/
+*.user
+*.suo

@@ -1,0 +1,54 @@
+name: MSVC
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        arch:
+          - amd64
+          - amd64_x86
+          - amd64_arm64
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: ${{ matrix.arch }}
+      - name: build
+        run: ./build.cmd
+      - name: test
+        run: ./test.cmd
+      - name: list installed files
+        if: ${{ always() }}
+        shell: pwsh
+        run: |
+          Write-Host "=== Contents of build/bin directory ==="
+          if (Test-Path build/bin) { Get-ChildItem build/bin -Recurse | Select-Object FullName }
+          Write-Host "`n=== Contents of build/lib directory ==="
+          if (Test-Path build/lib) { Get-ChildItem build/lib -Recurse | Select-Object FullName }
+          Write-Host "`n=== Contents of build/share directory ==="
+          if (Test-Path build/share) { Get-ChildItem build/share -Recurse | Select-Object FullName }
+          Write-Host "`n=== Contents of build/include directory ==="
+          if (Test-Path build/include) { Get-ChildItem build/include -Recurse | Select-Object FullName }
+      - name: upload artifacts
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: opencc-msvc-${{ matrix.arch }}
+          path: |
+            build/bin/**
+            build/lib/**
+            build/share/**
+            build/include/**
+            build/ctest.log
+            build/Testing/**
