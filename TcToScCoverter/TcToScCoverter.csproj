@@ -11,6 +11,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KmbTextConversion\KmbTextConversion.csproj" />
+    <ProjectReference Include="..\TcScTextConverterLib\TcScTextConverterLib.csproj" />
   </ItemGroup>
 </Project>

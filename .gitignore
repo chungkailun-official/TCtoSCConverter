@@ -7,6 +7,7 @@ route-files-*/
 route.test.csv
 test-restore.log
 opencc-master.zip
+OpenCC-master/
 
 .vs/
 *.user

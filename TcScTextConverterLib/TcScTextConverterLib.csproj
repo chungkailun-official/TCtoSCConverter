@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <RootNamespace>TcScTextConverterLib</RootNamespace>
+    <AssemblyName>TcScTextConverterLib</AssemblyName>
+    <LangVersion>latest</LangVersion>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Data\OpenCC\TSPhrases.txt" LogicalName="TcScTextConverterLib.Data.OpenCC.TSPhrases.txt" />
+    <EmbeddedResource Include="Data\OpenCC\TSCharacters.txt" LogicalName="TcScTextConverterLib.Data.OpenCC.TSCharacters.txt" />
+    <EmbeddedResource Include="Data\OpenCC\STPhrases.txt" LogicalName="TcScTextConverterLib.Data.OpenCC.STPhrases.txt" />
+    <EmbeddedResource Include="Data\OpenCC\STCharacters.txt" LogicalName="TcScTextConverterLib.Data.OpenCC.STCharacters.txt" />
+    <EmbeddedResource Include="Data\OpenCC\TWPhrasesRev.txt" LogicalName="TcScTextConverterLib.Data.OpenCC.TWPhrasesRev.txt" />
+    <EmbeddedResource Include="Data\OpenCC\TWVariantsRevPhrases.txt" LogicalName="TcScTextConverterLib.Data.OpenCC.TWVariantsRevPhrases.txt" />
+    <EmbeddedResource Include="Data\OpenCC\TWVariants.txt" LogicalName="TcScTextConverterLib.Data.OpenCC.TWVariants.txt" />
+    <EmbeddedResource Include="Data\OpenCC\HKVariantsRevPhrases.txt" LogicalName="TcScTextConverterLib.Data.OpenCC.HKVariantsRevPhrases.txt" />
+    <EmbeddedResource Include="Data\OpenCC\HKVariants.txt" LogicalName="TcScTextConverterLib.Data.OpenCC.HKVariants.txt" />
+  </ItemGroup>
+</Project>

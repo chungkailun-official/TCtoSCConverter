@@ -1,21 +1,21 @@
-# KMB Route Downloader
+# TC to SC Converter
 
-WinForms desktop application targeting `.NET Framework 4.8` that downloads KMB route, stop, and route-stop data from the official KMB transport APIs and exports a `route.csv` file in this format:
+`TC to SC Converter` is a Windows Forms desktop application and reusable `.NET Framework 4.8` library for offline Traditional Chinese to Simplified Chinese conversion.
 
-```csv
-bus_number,stop_name,direction,stop_id,stop_name_sc,direction_sc
-```
+## Projects
+
+- `TcToScCoverter`: Windows Forms desktop application for importing, pasting, converting, copying, exporting, and drag-dropping text files.
+- `TcScTextConverterLib`: reusable offline conversion library backed by embedded OpenCC-style dictionaries.
 
 ## Build
 
 ```powershell
-dotnet build
+dotnet build TcToScCoverter\TcToScCoverter.csproj
+dotnet build TcScTextConverterLib\TcScTextConverterLib.csproj
 ```
 
-## Run
+## Run the desktop app
 
 ```powershell
-dotnet run
+dotnet run --project TcToScCoverter\TcToScCoverter.csproj
 ```
-
-The application defaults the export file to `route.csv` in the application folder, and you can change it with the `Browse...` button.
